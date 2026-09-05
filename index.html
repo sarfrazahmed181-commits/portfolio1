@@ -143,9 +143,9 @@
   .hero .role{font-family:var(--sans);font-weight:600;font-size:clamp(1.05rem,2.3vw,1.5rem);color:#dbe4f4;margin:22px 0 0;letter-spacing:.005em}
   .hero .role b{color:var(--accent);font-weight:700}
   .hero .tagline{color:var(--muted);font-size:clamp(1rem,1.5vw,1.14rem);max-width:62ch;margin:18px 0 0}
-  .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 0;font-family:var(--mono);font-size:.82rem;color:#c0cee6}
-  .hero-meta span{border:1px solid var(--line);background:rgba(255,255,255,.02);padding:5px 12px;border-radius:100px;letter-spacing:.02em}
-  .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+  .hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:32px}
+  .hero-actions .btn{padding:12px 22px;font-size:.96rem}
+  .hero-actions .meta{font-family:var(--mono);font-size:.76rem;color:#c0cee6;border:1px solid var(--line);background:rgba(255,255,255,.02);padding:8px 12px;border-radius:100px;letter-spacing:.01em}
   .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-weight:700;font-size:1.02rem;
     padding:14px 28px;border-radius:100px;cursor:pointer;border:0;transition:transform .16s,box-shadow .25s,background .2s,border-color .2s}
   .btn:active{transform:scale(.97)}
@@ -257,25 +257,23 @@
   .foot-note{max-width:46ch;line-height:1.55;margin:12px 0 0}
 
   /* ---------- Modal ---------- */
-  #modal{position:fixed;inset:0;z-index:130;display:none;align-items:flex-start;justify-content:center;padding:5vh 16px;overflow-y:auto;
-    background:rgba(4,10,22,.72);backdrop-filter:blur(6px)}
+  #modal{position:fixed;inset:0;z-index:130;display:none;align-items:center;justify-content:center;padding:4vh 16px;
+    background:rgba(4,10,22,.74);backdrop-filter:blur(6px)}
   #modal.open{display:flex}
-  .sheet{width:min(760px,100%);background:var(--surface);border:1px solid var(--line-2);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);animation:pop .35s cubic-bezier(.2,.8,.2,1)}
-  @keyframes pop{from{transform:translateY(30px) scale(.97);opacity:0}to{transform:none;opacity:1}}
-  .sheet-hero{position:relative;aspect-ratio:16/7;display:flex;align-items:flex-end;padding:26px;overflow:hidden}
-  .sheet-hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(120,160,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(120,160,255,.07) 1px,transparent 1px);background-size:30px 30px}
-  .sheet-hero .mono{position:absolute;right:22px;top:8px;font-family:var(--display);font-weight:800;font-size:clamp(3rem,12vw,5.5rem);color:rgba(255,255,255,.09)}
-  .sheet-hero h3{position:relative;font-family:var(--display);font-weight:800;font-size:clamp(1.7rem,4.6vw,2.7rem);letter-spacing:-.02em;margin:0}
-  .sheet-fade{position:absolute;inset:auto 0 0 0;height:70%;background:linear-gradient(transparent,var(--surface))}
-  .close-x{position:absolute;top:16px;right:16px;z-index:3;width:38px;height:38px;border-radius:50%;background:rgba(6,14,28,.6);border:1px solid var(--line-2);color:#fff;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;line-height:1}
+  .sheet{position:relative;width:min(660px,100%);max-height:92vh;overflow-y:auto;background:var(--surface);border:1px solid var(--line-2);
+    border-radius:18px;padding:clamp(30px,4.5vw,44px);text-align:center;box-shadow:var(--shadow);animation:pop .35s cubic-bezier(.2,.8,.2,1)}
+  @keyframes pop{from{transform:translateY(24px) scale(.97);opacity:0}to{transform:none;opacity:1}}
+  .sheet-mono{position:absolute;top:6px;right:22px;z-index:0;font-family:var(--display);font-weight:800;font-size:clamp(2.8rem,10vw,5rem);color:rgba(120,160,255,.09);pointer-events:none;letter-spacing:.02em}
+  .close-x{position:absolute;top:14px;left:14px;z-index:3;width:38px;height:38px;border-radius:50%;background:rgba(6,14,28,.6);border:1px solid var(--line-2);color:#fff;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;line-height:1}
   .close-x:hover{background:var(--accent);color:#05101f}
-  .sheet-body{padding:24px clamp(22px,4vw,30px) 32px}
-  .sheet-meta{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-family:var(--mono);color:#c0cee6;font-size:.82rem;margin-bottom:18px}
+  #mTitle{position:relative;z-index:1;font-family:var(--display);font-weight:800;font-size:clamp(1.4rem,3.8vw,2.2rem);letter-spacing:-.02em;margin:12px auto 16px;max-width:17ch;line-height:1.14}
+  .sheet-meta{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:center;font-family:var(--mono);color:#c0cee6;font-size:.82rem;margin-bottom:18px}
   .sheet-meta .m-feat{color:var(--accent-2)}
-  .sheet-meta .m-tag{border:1px solid var(--line-2);padding:2px 9px;border-radius:100px;text-transform:uppercase;letter-spacing:.06em;font-size:.72rem}
-  .sheet-body .desc{color:#d6e0f0;margin:0 0 20px;font-size:1.02rem;line-height:1.65}
-  .sheet-body .lbl{font-family:var(--mono);text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;color:var(--muted-2);margin:0 0 10px}
-  .prop-note{margin-top:20px;padding:13px 16px;border-left:3px solid var(--accent);background:var(--bg-2);color:var(--muted);font-size:.86rem;border-radius:0 8px 8px 0}
+  .sheet-meta .m-tag{border:1px solid var(--line-2);padding:2px 10px;border-radius:100px;text-transform:uppercase;letter-spacing:.06em;font-size:.72rem}
+  #mDesc{position:relative;z-index:1;color:#d6e0f0;margin:0 auto 22px;max-width:56ch;font-size:1.01rem;line-height:1.66}
+  .sheet .lbl{position:relative;z-index:1;font-family:var(--mono);text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;color:var(--muted-2);margin:0 0 12px}
+  #mTags{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-top:0}
+  .prop-note{position:relative;z-index:1;margin-top:24px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted-2);font-size:.83rem}
 
   @media(max-width:860px){
     .navlinks{position:fixed;inset:0 0 0 auto;width:min(300px,82vw);flex-direction:column;align-items:flex-start;justify-content:center;gap:24px;
@@ -335,16 +333,13 @@
       <h1>Sarfraz Ahmed</h1>
       <p class="role">React &middot; Node.js &middot; PostgreSQL — building <b>healthcare platforms</b></p>
       <p class="tagline">Full-stack developer with hands-on experience building HIPAA-aware, multi-tenant healthcare platforms — role-based portals, clinical workflows, PDF reporting, and billing screens.</p>
-      <div class="cta">
+      <div class="hero-actions">
         <a href="#projects" class="btn btn-primary">View Projects
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a href="#contact" class="btn btn-ghost">Get in touch</a>
-      </div>
-      <div class="hero-meta">
-        <span>2026</span><span>Karachi, Pakistan</span><span>niXaam LLC</span>
+        <span class="meta">2026</span><span class="meta">Karachi, Pakistan</span><span class="meta">niXaam LLC</span>
       </div>
     </div>
-    <div class="scrollcue">Scroll<span></span></div>
   </section>
 
   <!-- ===== Projects ===== -->
@@ -483,20 +478,15 @@
 
 <!-- ===== Modal ===== -->
 <div id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
-  <div class="sheet">
-    <div class="sheet-hero" id="mHero">
-      <button class="close-x" id="closeM" aria-label="Close">&times;</button>
-      <span class="mono" id="mMono"></span>
-      <div class="sheet-fade"></div>
-      <h3 id="mTitle"></h3>
-    </div>
-    <div class="sheet-body">
-      <div class="sheet-meta" id="mMeta"></div>
-      <p class="desc" id="mDesc"></p>
-      <p class="lbl">Built with</p>
-      <div class="card-tags" id="mTags"></div>
-      <div class="prop-note" id="mNote"></div>
-    </div>
+  <div class="sheet" id="mHero">
+    <button class="close-x" id="closeM" aria-label="Close">&times;</button>
+    <span class="sheet-mono" id="mMono"></span>
+    <h3 id="mTitle"></h3>
+    <div class="sheet-meta" id="mMeta"></div>
+    <p class="desc" id="mDesc"></p>
+    <p class="lbl">Built with</p>
+    <div class="card-tags" id="mTags"></div>
+    <div class="prop-note" id="mNote"></div>
   </div>
 </div>
 
