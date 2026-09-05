@@ -137,8 +137,9 @@
     font-size:.76rem;color:#dbe6ff;background:rgba(79,140,255,.10);border:1px solid var(--line-2);padding:8px 15px;border-radius:100px;margin-bottom:26px}
   .badge .live{width:8px;height:8px;border-radius:50%;background:var(--good);box-shadow:0 0 12px var(--good);animation:pulse 2s ease-in-out infinite}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-  .hero h1{font-family:var(--display);font-weight:800;font-size:clamp(2.9rem,9vw,6.4rem);line-height:1.02;letter-spacing:-.03em;
-    margin:0;text-wrap:balance;background:linear-gradient(176deg,#ffffff,#aebfe0);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero h1{font-family:var(--display);font-weight:800;font-size:clamp(1.5rem,8vw,4.9rem);line-height:1.06;letter-spacing:-.035em;
+    margin:0;text-transform:uppercase;white-space:nowrap;width:-moz-fit-content;width:fit-content;max-width:100%;
+    background:linear-gradient(176deg,#ffffff,#aebfe0);-webkit-background-clip:text;background-clip:text;color:transparent}
   .hero .role{font-family:var(--sans);font-weight:600;font-size:clamp(1.05rem,2.3vw,1.5rem);color:#dbe4f4;margin:22px 0 0;letter-spacing:.005em}
   .hero .role b{color:var(--accent);font-weight:700}
   .hero .tagline{color:var(--muted);font-size:clamp(1rem,1.5vw,1.14rem);max-width:62ch;margin:18px 0 0}
@@ -164,12 +165,9 @@
   .row-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:26px}
   .row-note{color:var(--muted-2);font-size:.86rem;max-width:46ch}
   .row-wrap{position:relative}
-  .row{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 2px 24px;
-    scrollbar-width:thin;scrollbar-color:var(--card-2) transparent}
-  .row::-webkit-scrollbar{height:8px}
-  .row::-webkit-scrollbar-thumb{background:var(--card-2);border-radius:20px}
+  .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px}
 
-  .card{scroll-snap-align:start;flex:0 0 clamp(286px,80vw,366px);position:relative;border-radius:16px;overflow:hidden;cursor:pointer;
+  .card{position:relative;border-radius:16px;overflow:hidden;cursor:pointer;
     background:var(--glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);
     transition:transform .32s cubic-bezier(.2,.7,.2,1),box-shadow .32s,border-color .32s}
   .card:hover,.card:focus-visible{transform:translateY(-8px);box-shadow:var(--shadow);border-color:var(--line-2)}
@@ -314,7 +312,7 @@
 <!-- ===== Nav ===== -->
 <header id="nav">
   <a href="#top" class="logo" aria-label="Sarfraz Ahmed — home">
-    <span class="mk">SA</span><span class="wm">Sarfraz<b>.</b></span>
+    <span class="mk">SA</span>
   </a>
   <nav class="navlinks" id="navlinks" aria-label="Primary">
     <a href="#projects">Projects</a>
@@ -337,13 +335,13 @@
       <h1>Sarfraz Ahmed</h1>
       <p class="role">React &middot; Node.js &middot; PostgreSQL — building <b>healthcare platforms</b></p>
       <p class="tagline">Full-stack developer with hands-on experience building HIPAA-aware, multi-tenant healthcare platforms — role-based portals, clinical workflows, PDF reporting, and billing screens.</p>
-      <div class="hero-meta">
-        <span>2026</span><span>Karachi, Pakistan</span><span>niXaam LLC</span>
-      </div>
       <div class="cta">
         <a href="#projects" class="btn btn-primary">View Projects
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+      <div class="hero-meta">
+        <span>2026</span><span>Karachi, Pakistan</span><span>niXaam LLC</span>
       </div>
     </div>
     <div class="scrollcue">Scroll<span></span></div>
@@ -360,11 +358,7 @@
         <p class="row-note">Client work at niXaam LLC — source is proprietary, so summaries use permission-safe, non-confidential descriptions. Click any card for details.</p>
       </div>
       <div class="row-wrap reveal">
-        <button class="row-arrow left" data-dir="-1" aria-label="Scroll left">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 5l-7 7 7 7"/></svg></button>
         <div class="row" id="projRow"></div>
-        <button class="row-arrow right" data-dir="1" aria-label="Scroll right">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"/></svg></button>
       </div>
     </div>
   </section>
